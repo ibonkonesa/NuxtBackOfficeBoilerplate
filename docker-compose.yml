@@ -1,0 +1,14 @@
+version: "3"
+services:
+  nuxt:
+    image: node:10
+    working_dir: "/var/www/app"
+    environment:
+      - HOST=0.0.0.0
+      - API_URL=http://localhost:8888 #API URL
+      - APP_NAME=BackOffice
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./:/var/www/app
+    command: bash -c "npm install && npm run dev"
